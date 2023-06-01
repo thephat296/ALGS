@@ -1,0 +1,19 @@
+Compute the number of primitive operations for each of the following algorithm
+fragments. The “increment counter” step has not been mentioned explicitly – be sure
+to take this into account in your computations. Hint: When faced with nested for
+loops, compute the number of steps required by the inner loop first, and then figure
+out the effect of the outer loop.
+                                    Operations:
+A.  sum ← 0                             1
+    for i ← 0 to n-1 do                 n + 2
+        sum ← sum + 1                   2n
+        {increment counter i}           2n
+                                    Total: 5n + 3
+
+B.  sum ← 0                             1
+    for i ← 0 to n-1 do                 n + 2
+        for j ← 0 to n-1 do             n(n + 2)
+            sum ← sum + 1               2(n^2)
+            {increment counter j}       2(n^2)
+        {increment counter i}           2n
+                                    Total: 5(n^2) + 5n + 3

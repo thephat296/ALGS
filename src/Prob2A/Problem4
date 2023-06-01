@@ -1,0 +1,32 @@
+The algorithm called removeDups is provided. Its purpose is to extract from the
+input list L a list M of all the distinct elements of L.
+A. Explain why the running time of removeDups is O(n^2) (remember to consider the running time of M.contains(x))
+    - first for-loop takes O(n)
+    - the contains function inside the for-loop will loop all elements to check the element exists or not, it will take O(n)
+    => so in total, the running time will be O(n) * O(n) = O(n^2)
+
+B. Try using the technique shown in the solution to the
+Sum of Two Problem (i.e. using a HashMap) to improve running time
+to O(n). Be sure to prove that running time of your new algorithm is O(n).
+   Algorithm removeDups(L)
+	Input: a list L
+	Output: a list M containing the distinct elements of L
+	M <- new List
+	set <- new HashSet
+	for i <- 0 to L.size()-1 do
+		if not set.contains(L[i]) then
+			M.add(L[i])
+			set.add(L[i])
+	return M
+    => The set.contains run in O(1) time, so the running time will be O(n) * O(C) = O(n)
+
+C. Prove your algorithm in B is correct – to do this, come up with a loop invariant I(i). Hint. At stage i,
+M contains the distinct elements contained in [L[0]…L[i]].
+ Base case: i = 1.
+ After i = 1 pass, this means M contains only one element [L[0]]. So it true.
+ Induction steps:
+ Assume I(i) is correct after passing #i, M = [L[0]..L[i]] contains all distinct elements
+ We will examine at this stage with L[i+1]
+ Case 1: if hashSet contains L[i+1], L[i+1] will not add to list M because existed.
+ Case 2: if hashSet does not contain L[i+1], L[i+1] will add to the hashSet and list M.
+ Then M contains all distinct elements [L[0]…L[i], L[i+1]]
