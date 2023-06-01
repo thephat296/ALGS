@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
-import lab1.powerset.PowerSet;
+import Prob1B.Problem6;
 
 public class Problem3 {
 
@@ -36,7 +36,7 @@ public class Problem3 {
      */
     public static boolean sumFound(List<Integer> list, int k) {
         // implement
-        List<Set<Integer>> setList = PowerSet.powerSet(new ArrayList<>(list));
+        List<Set<Integer>> setList = Problem6.powerSet(new ArrayList<>(list));
         for (Set<Integer> set : setList) {
             int total = k;
             for (int num : set) {

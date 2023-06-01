@@ -1,10 +1,7 @@
 package Prob1B;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Set;
-import lab1.powerset.PowerSet;
+import java.util.*;
+
 public class Problem6 {
     public static void main(String[] args) {
         System.out.println(powerSet(List.of(1)));
@@ -18,8 +15,18 @@ public class Problem6 {
      * (A) If input is {1}, output should be [{}, {1}].
      * (B) If input is {1, 2}, output should be [{}, {1}, {2}, {1, 2}].
      */
-    public static List<Set> powerSet(List list) {
+    public static List<Set<Integer>> powerSet(List<Integer> list) {
         // implement
-        return PowerSet.powerSet(new ArrayList<>(list));
+        List<Set<Integer>> subsets = new ArrayList<>();
+        subsets.add(new HashSet<>());
+        for (int num : list) {
+            int subsetsSize = subsets.size();
+            for (int j = 0; j < subsetsSize; j++) {
+                Set<Integer> subset = new HashSet<>(subsets.get(j));
+                subset.add(num);
+                subsets.add(subset);
+            }
+        }
+        return subsets;
     }
 }
