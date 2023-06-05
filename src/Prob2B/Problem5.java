@@ -39,16 +39,14 @@ public class Problem5 {
      */
     public int[] bubbleSort1(int[] arr) {
         int len = arr.length;
-        for (int i = 0; i < len; ++i) {
-            boolean isSorted = true;
-            for (int j = 0; j < len - 1; ++j) {
-                if (arr[j] > arr[j + 1]) {
-                    isSorted = false;
-                    swap(arr, j, j + 1);
+        boolean swappedOnPrevRun = true;
+        while (swappedOnPrevRun) {
+            swappedOnPrevRun = false;
+            for (int i = 0; i < len - 1; ++i) {
+                if (arr[i] > arr[i + 1]) {
+                    swappedOnPrevRun = true;
+                    swap(arr, i, i + 1);
                 }
-            }
-            if (isSorted) {
-                return arr;
             }
         }
         return arr;
@@ -62,6 +60,7 @@ public class Problem5 {
       are in final sorted order.
       <answer>
        Let I(i) be the statement the elements arr[n-i-1]..arr[n-1] are in final sorted order.
+       Claim: After pass #i, I(i) is true
        Base case i = 0:
            After pass #0, arr[n - 1] is in final sorted order, it is the largest element in the array
        Induction step:

@@ -5,15 +5,15 @@ loops, compute the number of steps required by the inner loop first, and then fi
 out the effect of the outer loop.
                                     Operations:
 A.  sum ← 0                             1
-    for i ← 0 to n-1 do                 n + 2
+    for i ← 0 to n-1 do                 n + 3
         sum ← sum + 1                   2n
         {increment counter i}           2n
-                                    Total: 5n + 3
+                                    Total: 5n + 4
 
 B.  sum ← 0                             1
-    for i ← 0 to n-1 do                 n + 2
-        for j ← 0 to n-1 do             n(n + 2)
+    for i ← 0 to n-1 do                 n + 3
+        for j ← 0 to n-1 do             n(n + 3)
             sum ← sum + 1               2(n^2)
             {increment counter j}       2(n^2)
         {increment counter i}           2n
-                                    Total: 5(n^2) + 5n + 3
+                                    Total: 5(n^2) + 6n + 4

@@ -18,9 +18,9 @@ public class Problem2 {
         }
         return arr;
     }
-    /**
-     * First loop: O(n)
-     * Second loop nested: O(n^2)
-     * Asymptotic running time: O(n) + O(n^2) = O(n^2)
+    /*
+      First loop: O(n)
+      Second loop nested: O(n^2)
+      Asymptotic running time: O(n) + O(n^2) = O(n^2)
      */
 }
